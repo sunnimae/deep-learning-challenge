@@ -1,0 +1,32 @@
+ANALYSIS
+NEURAL NETWORK MODEL
+PURPOSE
+The assignement is to build a model predicts whether applicants will be successful if funded by Alphabet Soup. For this purpose, we are building a Neural Network Model. A Neural Network is an advanced form of machine learning that contains multiple layer of nodes, which perform individual computations. Here is an example diagram of a neural network:
+ 
+Source: Slideshow from Data Analytics Bootcamp  (University of Texas)
+
+DATA PREPROCESSING
+Before starting to build the model, the data is prepared by determining the following:
+Target and Feature Variables
+- To predict whether an organization willl be successful,  the appropriate variablewould be : IS_SUCCESSFUL
+ - This means we are using the rest of the variables (NAME, APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERTIONS, ASK_AMT) as features variables.
+Variables Removed:
+- Initially, we removed EIN and NAME from the input data, but this left too few variables. After a tutoring session with Khangwelo, we tried to reintroduce the NAME variable into the optimized model.
+
+COMPILING, TRAINING, AND EVALUATING THE MODEL:
+Compiling and Training
+We start our model with 30 neurons , 2 layers, and ReLu activation functions.
+We choose 30 neurons in each layer because we our initial model has 42 input dimensions, and we aimed to keep the number of neurons similar to the input dimensions. We experimented with adding more neruons, but this increased the computational power required to run the model wihout a significant improvement in accuracy. 
+We use two-hidden layers to capture more inticate patterns and features, as the dataset is complex.
+ReLu activation functions were used because there were no negative value in the dataset after we converted it using 'pd.getdummies()'
+Sigmoid activation function was used in the output layer because the classification problem is binary.
+Evaluating
+The model run in the 72.4% accuracy range, despite attempts to reduce or increase the numbers of neurons and layers.
+Model Performance Optimization
+After consulting with tutor Khangwelo, I reintroduced the NAME column, and reduced the number of unique values from 19568 to 355. The second attempt improved the accuracy from 72.4% to 78.9% and decreased the loss from 0.55 to 0.44.
+
+SUMMARY
+Although the accuracy increased to 78.9%, it is still not high enough for real world applications. 
+Recommendation
+I recommend using a different model. The model I propose is Random Forest, mainly due to the size and the type of the dataset. Random Forests are quick to train and to optimize according to their hyperparameters [3]. Thus, the computational cost and time of training a Random Forest are comparatively low. (source: https://blog.frankfurt-school.de/wpcontent/uploads/2018/10/Neural-Networks-vs-Random-Forests.pdf)
+
